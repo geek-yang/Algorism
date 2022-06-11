@@ -1,3 +1,6 @@
+# remove output file
+*.out
+
 # vscode files
 .vscode/
 
