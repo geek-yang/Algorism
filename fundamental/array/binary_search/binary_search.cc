@@ -3,6 +3,13 @@
 using namespace std;
 
 class Solution {
+/* Solution for leetcode question 704.
+
+For binary search, it is a must that the given input
+array is sorted in ascending order and there is no
+repeated element.
+
+ */
 public:
     int binary_search(vector<int>& nums, int target) {
         int left = 0;
