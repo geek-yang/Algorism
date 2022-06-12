@@ -5,9 +5,14 @@ using namespace std;
 class Solution {
 /* Solution for leetcode question 27 */
 public:
-    int remove_element_smart (vector<int>& nums, int target) {
-        //something TBA
-        return -1;
+    int remove_element_dual_pointer (vector<int>& nums, int target) {
+        int slowindex = 0;
+        for (int fastindex = 0; fastindex < nums.size(); fastindex++) {
+            if (target != nums[fastindex]) {
+                nums[slowindex++] = nums[fastindex];
+            }
+        }
+        return slowindex;
     }
 
     int remove_element_brute_force (vector<int>& nums, int target) {
@@ -43,7 +48,8 @@ int main () {
     cout << "The array for test case 1 is:" << endl;
     solver.print_input(nums);
 
-    int result = solver.remove_element_brute_force(nums, val);
+    //int result = solver.remove_element_brute_force(nums, val);
+    int result = solver.remove_element_dual_pointer(nums, val);
     cout << "The length is " << result << endl;
     solver.print_input(nums);
 
@@ -51,10 +57,11 @@ int main () {
     nums = {0,1,2,2,3,0,4,2};
     val = 2;
 
-    cout << "The array for test case 1 is:" << endl;
+    cout << "The array for test case 2 is:" << endl;
     solver.print_input(nums);
         
-    result = solver.remove_element_brute_force(nums, val);
+    //result = solver.remove_element_brute_force(nums, val);
+    result = solver.remove_element_dual_pointer(nums, val);
     cout << "The length is " << result << endl;
     solver.print_input(nums);
 }
