@@ -9,6 +9,13 @@ struct ListNode {
     ListNode(int x) : val(x), next(NULL) {}  //constructor
 };
 
+void print_list(ListNode* node) {
+    while (node != NULL) {
+        cout << node->val << " ";
+        node = node->next;
+    }
+};
+
 int main () {
     // create three empty nodes
     ListNode* head = new ListNode(5);
@@ -24,5 +31,5 @@ int main () {
 
     // print link list
 
-    cout << head->val << endl;
+    print_list(head);
 }

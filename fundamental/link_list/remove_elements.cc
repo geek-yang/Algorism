@@ -13,13 +13,20 @@
 class Solution {
 public:
     ListNode* removeElements(ListNode* head, int val) {
-        // tba
+        // delete head node
+        while (head != NULL && head->val == val) {
+            ListNode* tmp = head;
+            head = head->next; // pointer move to next node
+            delete tmp;
+        }
         return head;
+
+        // delete other nodes
     }
 };
 
 int main () {
     // test case
-    std::vector<int> head{1,2,6,3,4,5,6};
+    int array = {1,2,6,3,4,5,6};
     int val = 6;
 }
