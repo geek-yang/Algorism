@@ -22,5 +22,7 @@ int main () {
     head->next = second;
     second->next = third;
 
+    // print link list
+
     cout << head->val << endl;
 }
