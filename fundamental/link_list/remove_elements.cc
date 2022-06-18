@@ -19,14 +19,26 @@ public:
             head = head->next; // pointer move to next node
             delete tmp;
         }
-        return head;
 
         // delete other nodes
+        ListNode* cur = head;
+        while(cur != NULL && cur->next != NULL) {
+            if (cur->next->val == val) {
+                ListNode* temp = cur->next;
+                cur->next = cur->next->next;
+                delete temp;
+            }
+            else {
+                cur = cur->next;
+            }
+        }
+        return head;
     }
+
 };
 
 int main () {
     // test case
-    int array = {1,2,6,3,4,5,6};
+    int array[] = {1,2,6,3,4,5,6};
     int val = 6;
 }
