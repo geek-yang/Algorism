@@ -1,16 +1,15 @@
 #include <iostream>
-#include <vector>
 
 //https://www.geeksforgeeks.org/create-linked-list-from-a-given-array/
 
- // Definition for singly-linked list.
- struct ListNode {
-     int val;
-     ListNode *next;
-     ListNode() : val(0), next(nullptr) {}
-     ListNode(int x) : val(x), next(nullptr) {}
-     ListNode(int x, ListNode *next) : val(x), next(next) {}
- };
+// Definition for singly-linked list.
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
 
 // Function to insert node
 void insert(ListNode** head, int val)
