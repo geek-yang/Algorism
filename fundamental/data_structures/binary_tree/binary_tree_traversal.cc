@@ -13,7 +13,39 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right): val(x), left(left), right(right) {}
 };
 
-class Solution {
+class Postorder {
+public:
+    void traversal (TreeNode* cur, vector<int>& vec) {
+        if (cur == nullptr) return;
+        traversal(cur->left, vec);
+        traversal(cur->right, vec);
+        vec.push_back(cur->val);
+    }
+
+    vector<int> postorderTraversal (TreeNode *root) {
+        vector<int> result;
+        traversal(root, result);
+        return result;
+    }
+};
+
+class Inorder {
+public:
+    void traversal (TreeNode* cur, vector<int>& vec) {
+        if (cur == nullptr) return;
+        traversal(cur->left, vec);
+        vec.push_back(cur->val);
+        traversal(cur->right, vec);        
+    }
+
+    vector<int> inorderTraversal (TreeNode* root) {
+        vector<int> result;
+        traversal(root, result);
+        return result;        
+    }
+};
+
+class Preorder {
 public:
     void traversal (TreeNode* cur, vector<int>& vec) {
         if (cur == nullptr) return;
@@ -27,7 +59,6 @@ public:
         traversal(root, result);
         return result;
     }
-    
 };
 
 int main () {
@@ -45,9 +76,23 @@ int main () {
     // create a vector to save the results
 
     vector<int> tree_traversal_result;
-
-    Solution solver;
+    cout << "Preorder traversal" << endl;
+    Preorder solver;
     tree_traversal_result = solver.preorderTraversal(root);
+    for (auto &i: tree_traversal_result) {
+        cout<< i << ' ';
+    }
+
+    cout << "\n" << "Postorder traversal" << endl;
+    Postorder solver_1;
+    tree_traversal_result = solver_1.postorderTraversal(root);
+    for (auto &i: tree_traversal_result) {
+        cout<< i << ' ';
+    }
+
+    cout << "\n" << "Inorder traversal" << endl;
+    Inorder solver_2;
+    tree_traversal_result = solver_2.inorderTraversal(root);
     for (auto &i: tree_traversal_result) {
         cout<< i << ' ';
     }
