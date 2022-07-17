@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <stack>
 using namespace std;
 
 /* Leetcode question 144*/
@@ -61,6 +62,24 @@ public:
     }
 };
 
+class Preorder_iter {
+/*Preorder traversal with iteration approach.*/
+public:
+    vector<int> traversal(TreeNode* root) {
+        stack<TreeNode*> node_stack;
+        if (root != NULL) node_stack.push(root);
+        vector<int> result;
+        while (!node_stack.empty()) {
+            TreeNode* cur = node_stack.top();
+            node_stack.pop();
+            result.push_back(cur->val);
+            if (cur->right) node_stack.push(cur->right);
+            if (cur->left) node_stack.push(cur->left);
+        }
+        return result;
+    }
+};
+
 int main () {
     // create a sample tree
     TreeNode* root = new TreeNode(10);
@@ -93,6 +112,13 @@ int main () {
     cout << "\n" << "Inorder traversal" << endl;
     Inorder solver_2;
     tree_traversal_result = solver_2.inorderTraversal(root);
+    for (auto &i: tree_traversal_result) {
+        cout<< i << ' ';
+    }
+
+    cout << "\n" << "Preorder traversal with iteration" << endl;
+    Preorder_iter solver_3;
+    tree_traversal_result = solver_3.traversal(root);
     for (auto &i: tree_traversal_result) {
         cout<< i << ' ';
     }
