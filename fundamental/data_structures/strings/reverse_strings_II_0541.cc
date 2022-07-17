@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 #include <string>
 using namespace std;
 
@@ -14,6 +15,7 @@ public:
     }
 
     void reverse(string& s, int start, int end) {
+        // it can be replaced by reverse(s.begin(), s.end());
         for (int i = start, j = end; i < j; i++, j--)
             swap(s[i], s[j]);
     }
@@ -27,8 +29,6 @@ int main () {
     string s = solver.reverseStr(s_1, k);
     cout << s;
     cout << endl;
-
-    
 
     return 0;
 }
